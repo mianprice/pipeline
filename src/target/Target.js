@@ -56,11 +56,7 @@ class Target extends React.Component {
       </div>
     ) : (
       <div className="target_section">
-        {this.props.state.target.display_type === 'edit' ? (
-          <div className="target_save" onClick={() => {this.props.save_edited_target(this.props.state.target);}}>Save Target</div>
-        ) : (
-          <div className="target_save" onClick={() => {this.props.save_target(this.props.state.target);}}>Save Target</div>
-        )}
+
         <div className="t_label">Target Name</div>
         <input type="text" className="info_input" value={target.name} onChange={(event) => {this.props.change_value("name", event.target.value)}}/>
         <div className="t_label">Status</div>
@@ -77,7 +73,6 @@ class Target extends React.Component {
           {target.contacts.map((contact, idx) => {
             return (
               <div className="c_section" key={idx}>
-                <div className="remove_contact_button" onClick={() => {this.props.remove_contact(idx);}}>Remove Contact</div>
                 <div className="c_label">Name</div>
                 <input type="text" className="c_info_input" value={contact.name} onChange={(event) => {this.props.change_contact_value(idx,"name",event.target.value);}}/>
                 <div className="c_label">Title</div>
@@ -86,34 +81,27 @@ class Target extends React.Component {
                 <input type="text" className="c_info_input" value={contact.phone} onChange={(event) => {this.props.change_contact_value(idx,"phone",event.target.value);}}/>
                 <div className="c_label">Email</div>
                 <input type="text" className="c_info_input" value={contact.email} onChange={(event) => {this.props.change_contact_value(idx,"email",event.target.value);}}/>
-                <div className="c_label">Note</div>
-                <input type="text" className="c_info_input" value={contact.note} onChange={(event) => {this.props.change_contact_value(idx,"notes",event.target.value);}}/>
+                <div className="c_label">Notes</div>
+                <textarea className="c_info_input" value={contact.note} onChange={(event) => {this.props.change_contact_value(idx,"notes",event.target.value);}}/>
+                <div className="remove_contact_button" onClick={() => {this.props.remove_contact(idx);}}>Remove Contact</div>
               </div>
             )
           })}
         </div>
         <div className="financials">
-          <div className="f_section">
             <div className="f_title">Revenue Growth</div>
             <input type='text' className="f_data_input" value={target.revenue_growth} onChange={(event) => {this.props.change_value("revenue_growth", event.target.value)}}/>
-          </div>
-          <div className="f_section">
             <div className="f_title">Revenue per Customer</div>
             <input type='text' className="f_data_input" value={target.revenue_per_customer} onChange={(event) => {this.props.change_value("revenue_per_customer", event.target.value)}}/>
-          </div>
-          <div className="f_section">
             <div className="f_title">Customer Acquisition Cost</div>
             <input type='text' className="f_data_input" value={target.customer_acquisition_cost} onChange={(event) => {this.props.change_value("customer_acquisition_cost", event.target.value)}}/>
-          </div>
-          <div className="f_section">
             <div className="f_title">Churn Rate</div>
             <input type='text' className="f_data_input" value={target.churn} onChange={(event) => {this.props.change_value("churn", event.target.value)}}/>
-          </div>
         </div>
         {this.props.state.target.display_type === 'edit' ? (
-          <div className="target_save" onClick={() => {this.props.save_edited_target(this.props.state.target);}}>Save Target</div>
+          <div className="target_save" onClick={() => {this.props.save_edited_target(this.props.state.target);hashHistory.push('/')}}>Save Target</div>
         ) : (
-          <div className="target_save" onClick={() => {this.props.save_target(this.props.state.target);}}>Save Target</div>
+          <div className="target_save" onClick={() => {this.props.save_target(this.props.state.target);hashHistory.push('/')}}>Save Target</div>
         )}
       </div>
     );
