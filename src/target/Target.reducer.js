@@ -9,7 +9,7 @@ let INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'create') {
-    return Object.assign({}, state, {
+    return Object.assign({}, INITIAL_STATE, {
       id: action.new_id,
       display_type: 'create'
     });
