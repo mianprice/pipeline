@@ -14,1047 +14,141 @@ body {
 
 .navbar {
     width: 100vw;
-    height: 10vh;
-    /*background-color: black;*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    color: #f95759;
-    border-bottom: 4px solid #f95759;
+    text-align: center;
+    /*border-bottom: 4px solid black;*/
 }
 
-.app_title, .nav_link {
+.app_title, .app_title:visited {
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
     text-decoration: none;
-}
-
-.app_title:visited, .nav_link:visited {
-    color: #f95759;
-}
-
-.app_title {
     font-size: 2.5em;
-    width: 15vw;
     text-align: center;
-}
-
-.link_set {
-    width: 60vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding-right: 15px;
-}
-
-.nav_link:hover {
-    background-color: #ffeaea;
-}
-
-/***************/
-/*PLANNING PAGE*/
-/***************/
-.planning {
-    width: 100%;
-    height: 90vh;
-    /*background-color: rgb(225,225,225);*/
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.plan-title {
-    grid-row: span 1;
-    grid-column: span 1;
-}
-
-.save-picnik-buttons-container {
-    grid-row: span 1;
-    grid-column: span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /*background-color: cornflowerblue;*/
-}
-
-.save-picnik-button {
-    grid-row: span 1;
-    grid-column: span 1;
-    background-color: #f95759;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-.save-picnik-button:hover {
-    background-color: #FA8486;
-}
-
-.plan-submit-buttons {
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-    /*background-color: lightcoral;*/
-    display: block;
-    font-size: 12px;
-}
-
-.planning-container-tab:hover {
-    /*background-color: burlywood;*/
-    cursor: pointer;
-}
-
-.plan-submit-buttons:hover {
-    /*background-color: darkgrey;*/
-    cursor: pointer;
-}
-
-.picnik-planner-container {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 3fr 1fr;
-    width: 100vw;
-    height: 80vh;
-}
-
-.planning-page-picnik-chooser {
-    grid-column: span 1;
-    grid-row: span 1;
-    /*background-color: gold;*/
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 7fr;
-}
-
-.planning-container-tab {
-    grid-column: span 1;
-    grid-row: span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f95759;
-    color: white;
-}
-
-.planning-container-tab-active {
-    background-color: white;
-    color: #f95759;
-    /*border-top: 5px solid #f95759;
-    border-right: 5px solid #f95759;
-    border-left: 5px solid #f95759;*/
-}
-
-.current-planning-container {
-    grid-column: span 3;
-    grid-row: span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*background-color: cornsilk;*/
-}
-
-.planning-page-picnik-tracker {
-    grid-column: span 1;
-    grid-row: span 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 6fr 1fr;
-    /*background-color: yellow;*/
-}
-
-.current-picnik-basket-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: grey;
-    /*border-bottom: 5px solid #f95759;*/
-    /*border-right: 5px solid #f95759;*/
-    color: white;
-}
-
-.current-picnik-basket {
-    width: 100%;
-    height: 100%;
-    /*overflow-y: scroll;
-    overflow-x: hidden;*/
-    /*background-color: lavender;*/
-}
-
-.basket-choice-types {
-    height: 10%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-}
-
-.choice-type {
-    grid-row: span 1;
-    grid-column: span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: .85em;
-    background-color: #f95759;
-    color: white;
-}
-
-.choice-type:hover {
-    /*background-color: rebeccapurple;
-    color: white;*/
-}
-
-.choice-type > div {
-    font-size: 115%;
-}
-
-.choice-type-active {
-    background-color: white;
-    color: #f95759;
-}
-
-.basket-choices {
-    height: 90%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    display: flex;
-    justify-content:center;
-    text-align: center;
-    flex-wrap: wrap;
-    font-size: .85em;
-}
-
-.choice {
-    text-align: center;
-    padding: 5px;
-}
-
-/*.current-picnik-basket > div {
-    width: 100%;
-}*/
-
-.plan_part {
-    width: 100%;
-    height: 80vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    /*background-color: blanchedalmond;*/
-    text-align: center;
-}
-
-.plan_part_wrap {
-    overflow: hidden;
-}
-
-/*DRINKS PLANNING*/
-.drinks-wrapper {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-}
-
-.beers {
-    grid-row: span 1;
-    grid-column: span 1;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-.beer-label-img {
-    width: 142px;
-}
-
-.fa-beer, .fa-glass {
-    color: green;
-    font-size: 1.25em;
-}
-
-.beer-choices, .wine-choices, .recipe-choices {
-    margin: 10px 0 0 0;
-}
-
-.park-choice {
-    margin: 60px;
-    font-size: 1.5em;
-}
-
-.wines {
-    grid-row: span 1;
-    grid-column: span 1;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-.beer-and-wine {
-    background-color: #DBDCD6;
-    margin: 10px;
-    display: flex;
-    padding: 10px;
-    font-size: .8em;
-}
-
-.chooser-drink-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    padding: 10px;
-}
-
-.drink-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 33%;
-}
-
-.drink-titles {
-    font-size: 1.25em;
-    font-weight: bolder;
-}
-
-/*MAP PLANNING*/
-.map-wrapper {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 7fr;
-}
-
-.zip-entry {
-    grid-row: span 1;
-    grid-column: span 2;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-#search_zip {
-    width: 200px;
-    height: 20px;
-}
-
-.date-picker {
-    grid-row: span 1;
-    grid-column: span 1;
-    /*background-color: lemonchiffon;*/
-    overflow: hidden;
-}
-
-.park-set {
-    grid-row: span 1;
-    grid-column: span 1;
-    /*background-color: deepskyblue;*/
-    overflow-y: scroll;
-    overflow-x: hidden;
-    font-size: .75em;
-}
-
-.park {
-    height: 50px;
-    padding-bottom: 5px;
-    margin:5px;
-    border-bottom: 10px solid white;
-    display: flex;
-    justify-content: space-between;
-    align-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: column;
-    background-color: #DBDCD6;
-    padding: 10px;
-}
-
-.park_name {
-    font-size: 110%;
-    text-align: left;
-}
-
-.park_address {
     color: black;
-    text-align: left;
 }
 
-.park-button {
-    line-height: 2em;
-    text-align: center;
-    background-color: #f95759;
-    padding: 3px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
+.app_title:hover {
+  color: rgb(50,50,50);
 }
 
-.park-button:hover {
-    background-color: #FA8486;
-}
-
-/*************/
-/*SIGNUP PAGE*/
-/*************/
-.signup {
-    /*background-color: lightblue;*/
-    text-align: center;
-}
-
-/************/
-/*LOGIN PAGE*/
-/************/
-.login {
-    /*background-color: lightgreen;*/
-    width: 100vw;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    /*max-width: 200px;*/
-    /*margin: auto;*/
-}
-
-.signup_section_form {
+.home {
   width: 100vw;
-  height: 60vh;
   display: flex;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  /*align-content: center;*/
   flex-wrap: wrap;
-  flex-direction: column;
 }
 
-.signup_section_form {
-  width: 40%;
-  margin: 0 30%;
-  padding: 5px;
-  background-color: white;
-}
-.signup_section_form > input,label {
-    text-align: center;
-    width: 100%;
-    padding: 5px;
-}
-
-.signup_section_form > label {
-    margin-top: 10px;
+.new_target_button {
+  text-align: center;
+  font-size: 1.25em;
+  padding: 10px;
+  background-color: black;
+  border-radius: 2px;
+  color: white;
+  width: 50vw;
+  margin: 5px 25vw;
 }
 
-.login > input,label {
-    width: 50%;
-    margin: 0 25%;
-    padding: 5px;
+.new_target_button:hover {
+  cursor: pointer;
+  background-color: rgb(25,25,25);
 }
 
-.login > label {
-    margin-top: 10px;
+.targets_list {
+  border-top: 4px solid black;
+  padding-top: 2vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*align-content: center;*/
+  flex-wrap: wrap;
 }
 
-.login > div {
-    padding: 10px;
-    margin: 0 37.5%;
-    margin-top: 25px;
-    width: 25%;
-    border-radius: 5px;
-    background-color: #F95759;
-    color: white;
+.target_mini_section {
+  width: 90vw;
+  padding: 10px;
+  margin: 10px 5vw;
+  /*border-bottom: 3px rgb(125,125,125) dashed;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*align-content: center;*/
+  flex-wrap: nowrap;
 }
 
-.login > div:hover {
-    cursor: pointer;
-    background-color: #FA8486;
+.target_mini_section > .name {
+  width: 25vw;
+  text-align: left;
+  font-size: 1.15em;
 }
 
-/*.login {
-    background-color: lightgreen;
-    display: grid;
-    grid-column: span 1;
-    grid-row: span 1;
-    /*grid-template-rows: 1fr;
-    grid-template-columns: 3fr 1fr;
-}*/
-
-.login > label {
-  /*background-color: white;*/
-}
-
-/***********/
-/*HOME PAGE*/
-/***********/
-.home {
-    text-align: center;
-    position: relative;
-}
-
-.welcome-section {
-    background-color:rgba(249, 87, 89, .8);
-    display: inline-block;
-    width: 200px;
-    color: white;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    padding: 15px;
-    line-height: 2em;
-}
-
-.home-buttons-get-started {
-    background-color:rgba(249, 87, 89, .8);
-    display: inline-block;
-    width: 250px;
-    color: white;
-    position: absolute;
-    top: 50px;
-    left: 200px;
-    padding: 5px;
-    line-height: 2em;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.home-buttons-plan-now {
-    background-color:rgba(249, 87, 89, .8);
-    display: inline-block;
-    width: 250px;
-    color: white;
-    position: absolute;
-    top: 50px;
-    left: 500px;
-    padding: 5px;
-    line-height: 2em;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.home-buttons-plan-now:hover {
-    background-color: #FA8486;
-}
-
-.home-buttons-get-started:hover {
-    background-color: #FA8486;
-}
-
-.wine_section {
-  width: 40%;
-  margin: 2% 30% 2% 30%;
-}
-
-/**************/
-/*PROFILE PAGE*/
-/**************/
-.profile {
-    text-align: center;
-}
-
-.profile-buttons {
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    background-color: #f95759;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    margin: 5px;
-    width: 100px;
-    cursor: pointer;
-}
-
-.profile-buttons:hover {
-    background-color: #FA8486;
-}
-
-.signup_button {
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: green;
-    color: white;
-    cursor: pointer;
-    width: 100%;
-}
-
-.signup_button:hover {
-    background-color: #FA8486;
-}
-
-
-.signup_button_selected {
+.target_mini_section > .status {
+  width: 25vw;
+  text-align: left;
+  background-color: rgb(75,75,75);
+  border-radius: 2px;
   padding: 5px;
   color: white;
-  text-decoration: none;
-  background-color: red;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  margin: 5px;
-  font-size: 1.1em;
+  text-align: center;
+}
+
+.target_mini_section > .target_controls {
+  width: 30vw;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /*align-content: center;*/
+  flex-wrap: nowrap;
+}
+
+.target_mini_section > .target_controls > div {
+  padding: 5px;
+  margin: 0px 5px;
+  border-radius: 2px;
   cursor: pointer;
-  width: 100%;
+  background-color: black;
+  color: white;
 }
 
-.signup_button_selected:hover {
-    cursor: pointer;
+.target_mini_section > .target_controls > div:hover {
+  background-color: rgb(75,75,75);
+  color: white;
 }
 
-.signup_section_title {
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 1.25em;
-    background-color: white;
-    width: 98%;
-    color: black;
+.target_section {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
-.signup_section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 3px;
+.target_save {
+  width: 50vw;
+  margin: 2vh 25vw;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: lightgreen;
+  cursor: pointer;
 }
 
-/*.signup_section_profile_group {
-    width: 150%;
-}*/
-
-.signup-text-input {
-    width: 100%;
-}
-
-.signup_submit_button {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    width: 20%;
-    background-color:  #f95759;
-    color: white;
-}
-
-.signup_group {
-  width: 40%;
-  margin-right: 30%;
-  margin-left: 30%;
-}
-
-.signup_submit_button:hover {
-    background-color: lightgrey;
-    cursor: pointer;
-}
-
-.signup_skip_button {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    width: 20%;
-    background-color: #FA8486;
-    color: white;
-    cursor: pointer;
-}
-
-.beer-signup-section-container {
-  width: 30%;
-  margin: 10px 35% 5px 35%;
-}
-
-.signup_skip_button:hover {
-  background-color: lightgrey;
-}
-
-.wine_category {
-    margin-top: 5px;
-}
-
-.signup_progress {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.signup_profile_button {
-    width: 20%;
-}
-
-.progress_section {
-    padding: 5px;
-    width: 25%;
-}
-
-.sec_done {
-    background-color: #f95759;
-    color: white;
-}
-
-.sec_now {
-    background-color: transparent;
-    color: #f95759;
-}
-
-.sec_future {
-    background-color: #f95759;
-    color: white;
-}
-
-.paired-beer {
-    background-color: green;
-}
-
-.paired-wine {
-    background-color: green;
-}
-
-.recipe {
-    background-color: #DBDCD6;
-    margin: 10px;
-    display: flex;
-    padding: 10px;
-}
-
-.recipe-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 12%;
-}
-
-.recipe-title {
-    width: 22%;
-}
-
-.food-pairing-match-box {
-    display: block;
-}
-
-.picnik-chooser-recipe-buttons {
-    width: 10%;
-}
-
-.recipe-buttons {
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    background-color: #f95759;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    margin: 5px;
-    width: 50px;
-}
-
-.recipe-basket-buttons {
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    background-color: #f95759;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.recipe-buttons:hover {
-    background-color: #FA8486;
-    cursor: pointer;
-}
-
-.recipe-ingredients {
-    width: 40%;
-}
-
-.recipe-cuisines-container {
-    width: 16%;
-}
-
-.drink-buttons {
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    font-size: 10px;
-    background-color: #f95759;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    width: 35px;
-}
-
-.drink-buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 10%;
-}
-
-
-.drink-buttons:hover {
-    background-color: #FA8486;
-    cursor: pointer;
-}
-
-.check_mark {
-    width: 3%;
-    display: inline-block;
-    margin-right: 2px;
-    margin-left: 10px;
-    margin-top: 5px;
-}
-
-.cuisine-matched-recipe {
-    color: yellow;
-}
-
-.load-more-buttons {
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    background-color: #f95759;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    margin: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-}
-
-.load-more-buttons:hover {
-    background-color: #FA8486;
-}
-
-.invitations-content {
-    display: flex;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    padding: 5%;
-    /*margin-top: 20px;*/
-    text-align: center;
-}
-
-.invitations-picnik-summary {
-    width: 100%;
-    margin-bottom: 20px;
-    /*background-color: yellow;*/
-}
-
-/*.invitations-picnik-summary div {
-    margin: 10px;
-    background-color: lightgrey;
-}*/
-
-.invitations-entry {
-    width: 100%;
-    /*margin-left: 10%;*/
-    /*margin-right: 5%;*/
-    /*margin-bottom: 20px;*/
-    /*background-color: pink;*/
-    display: flex;
-    justify-content: space-between;
-    /*align-items: stretch;*/
-    flex-wrap: wrap;
-    /*margin-top: 20px;*/
-    /*padding: 10px;*/
-}
-
-.invitations-content-title {
-    width: 100%;
-    height: 1.5em;
-    padding-bottom: .5em;
-    text-align: center;
-    font-size: 1.25em;
-}
-
-.invitation-submit-button {
-    padding: 10px;
-    /*margin: 5px;*/
-    border-radius: 5px;
-    width: 100%;
-    background-color: darkgreen;
-    color: white;
-    text-align: center;
-}
-
-.invitation-submit-button:hover {
-    background-color: lightgreen;
-    cursor: pointer;
-}
-
-.invitation-clear-button {
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: red;
-    color: white;
-    text-align: center;
-}
-
-.invitation-clear-button:hover {
-    cursor: pointer;
-    background-color: darkred;
-}
-
-.add-to-guest-list-button {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    width: 60%;
-    background-color: darkgreen;
-    color: white;
-    text-align: center;
-    /*margin-top: 15px;*/
-}
-
-.add-to-guest-list-button:hover {
-    background-color: lightgreen;
-    cursor: pointer;
-}
-
-.guest-display {
-    margin: 5px 0;
-    width: 100%;
-    /*margin-left: 5%;*/
-    /*margin-right: 10%;*/
-    /*background-color: lightgrey;*/
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    flex-wrap: wrap;
-    /*margin-top: 20px;*/
-}
-
-.guest-display > div {
-    width: 100%;
-}
-
-.invitations-guest-list-section, .invitations-display-section {
-    margin-top: 10px;
-    width: 45%;
-    background-color: lightgrey;
-    display: flex;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    /*margin: 10px;*/
-    padding: 10px;
-    height: 40vh;
-
-}
-
-.invitations-guest-list-section > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 3px;
-}
-
-.invitations-guest-list-section > div > div,input {
-    width: 60%;
-    margin-top: 1px;
-}
-
-.user-preferred-recipe-good {
-    background-color: yellow;
-    display: inline-block;
-    padding: 5px;
-    font-size: .65em;
-}
-
-.user-preferred-recipe-great {
-    background-color: greenyellow;
-    display: inline-block;
-    padding: 5px;
-    font-size: .65em;
-}
-
-.user-preferred-recipe-excellent {
-    background-color: limegreen;
-    display: inline-block;
-    padding: 5px;
-    font-size: .65em;
-}
-
-.saved_items {
-    margin-top: 20px;
-}
-
-.saved_items_title {
-    font-size: 1.25em;
-    margin-bottom: 20px;
-}
-
-.saved-picnik {
-    height: 30vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1em;
-    background-color: #DBDCD6;
-    /*margin: 10px;*/
-}
-
-/*.saved-picnik*/
-
-.saved-picnik-details {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-    padding: 5px;
-}
-
-.saved-picnik-recipe-details {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 5px;
-}
-
-.saved-picnik-beer-details {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 5px;
-}
-
-.saved-picnik-wine-details {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 5px;
-}
-
-.day_button {
-    cursor: pointer;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.map_button {
-    background-color: lightgrey;
+.target_save:hover {
+  background-color: forestgreen;
 }
 
-.invite-response {
-    width: 100vw;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.t_label {
+  width: 50vw;
+  text-align: right;
+  padding: 10px;
 }
 
-.invite-response-text {
-    /*font-size: 2em;*/
-    color: #f95759;
+.info, .info_input {
+  width: 20vw;
+  margin-right: 25vw;
 }

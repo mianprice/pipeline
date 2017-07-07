@@ -71,7 +71,7 @@ class Target extends React.Component {
           <option value="Rejected">Rejected</option>
         </select>
         <div className="t_label">Notes</div>
-        <input type="text" className="info_input" value={target.notes} onChange={(event) => {this.props.change_value("notes", event.target.value)}}/>
+        <textarea className="info_input" value={target.notes} onChange={(event) => {this.props.change_value("notes", event.target.value)}}/>
         <div className="contacts">
           <div className="add_contact_button" onClick={() => {this.props.add_contact();}}>Add Contact</div>
           {target.contacts.map((contact, idx) => {
