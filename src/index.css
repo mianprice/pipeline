@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Sanchez|Raleway');
 
-body {
+body,input,select,textarea {
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
   color: black;
   box-sizing: border-box;
 }
+
+input, select, option, textarea {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-align-last: center;
+}
+
+
 
 .emph {
     font-family: 'Sanchez', serif;
@@ -153,16 +162,11 @@ body {
   background-color: skyblue;
 }
 
-.t_label {
-  width: 40vw;
-  padding: 3px;
-  text-align: right;
-}
-
-.info, .info_input {
-  width: 40vw;
-  padding: 3px;
-  text-align: left;
+.t_section_title {
+  font-size: 1.35em;
+  padding: 5px;
+  width: 100vw;
+  text-align: center;
 }
 
 .contacts {
@@ -208,16 +212,18 @@ body {
   background-color: lightcoral;
 }
 
-.c_label {
-  width: 40vw;
-  padding: 3px;
-  text-align: right;
+.c_label, .f_label, .t_label {
+  width: 25vw;
+  padding: 3px 0;
+  margin-left: 25vw;
+  text-align: left;
 }
 
-.c_info, .c_info_input {
-  width: 40vw;
-  padding: 3px;
-  text-align: left;
+.c_info, .c_info_input, .info, .info_input, .f_data, .f_data_input {
+  width: 25vw;
+  padding: 3px 0;
+  margin-right: 25vw;
+  text-align: right;
 }
 
 .financials {
@@ -233,10 +239,4 @@ body {
   width: 40vw;
   padding: 3px;
   text-align: right;
-}
-
-.f_data, .f_data_input {
-  width: 40vw;
-  padding: 3px;
-  text-align: left;
 }

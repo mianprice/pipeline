@@ -9,49 +9,42 @@ class Target extends React.Component {
     let main_display = (this.props.state.target.display_type === 'view') ? (
       <div className="target_section">
         <div className="target_save" onClick={() => {hashHistory.push('/')}}>Back to Target List</div>
+        <div className="t_section_title">Basics</div>
         <div className="t_label">Target Name</div>
         <div className="info">{target.name}</div>
         <div className="t_label">Status</div>
         <div className="info">{target.status}</div>
         <div className="t_label">Notes</div>
         <div className="info">{target.notes}</div>
-        <div className="t_label">Contacts</div>
+        <div className="t_section_title">Contacts</div>
         <div className="contacts">
           {target.contacts.map((contact, idx) => {
             return (
               <div className="c_section">
                 <div className="c_label">Name</div>
                 <div className="c_info">{contact.name}</div>
-                <div className="c_label">Name</div>
+                <div className="c_label">{contact.title.length ? "Title" : ""}</div>
                 <div className="c_info">{contact.title}</div>
-                <div className="c_label">Name</div>
+                <div className="c_label">{contact.phone.length ? "Phone" : ""}</div>
                 <div className="c_info">{contact.phone}</div>
-                <div className="c_label">Name</div>
+                <div className="c_label">{contact.email.length ? "Email" : ""}</div>
                 <div className="c_info">{contact.email}</div>
-                <div className="c_label">Name</div>
-                <div className="c_info">{contact.note}</div>
+                <div className="c_label">{contact.notes.length ? "Notes" : ""}</div>
+                <div className="c_info">{contact.notes}</div>
               </div>
             )
           })}
         </div>
-        <div className="t_label">Financials</div>
+        <div className="t_section_title">Financials</div>
         <div className="financials">
-          <div className="f_section">
-            <div className="f_title">Revenue Growth</div>
-            <div className="f_data">${target.revenue_growth}</div>
-          </div>
-          <div className="f_section">
-            <div className="f_title">Revenue per Customer</div>
-            <div className="f_data">${target.revenue_per_customer}</div>
-          </div>
-          <div className="f_section">
-            <div className="f_title">Customer Acquisition Cost</div>
-            <div className="f_data">${target.customer_acquisition_cost}</div>
-          </div>
-          <div className="f_section">
-            <div className="f_title">Churn Rate</div>
-            <div className="f_data">{target.churn}</div>
-          </div>
+          <div className="f_label">Revenue Growth</div>
+          <div className="f_data">{target.revenue_growth}</div>
+          <div className="f_label">Revenue per Customer</div>
+          <div className="f_data">{target.revenue_per_customer}</div>
+          <div className="f_label">Customer Acquisition Cost</div>
+          <div className="f_data">{target.customer_acquisition_cost}</div>
+          <div className="f_label">Churn Rate</div>
+          <div className="f_data">{target.churn}</div>
         </div>
       </div>
     ) : (
@@ -82,20 +75,20 @@ class Target extends React.Component {
                 <div className="c_label">Email</div>
                 <input type="text" className="c_info_input" value={contact.email} onChange={(event) => {this.props.change_contact_value(idx,"email",event.target.value);}}/>
                 <div className="c_label">Notes</div>
-                <textarea className="c_info_input" value={contact.note} onChange={(event) => {this.props.change_contact_value(idx,"notes",event.target.value);}}/>
+                <textarea className="c_info_input" value={contact.notes} onChange={(event) => {this.props.change_contact_value(idx,"notes",event.target.value);}}/>
                 <div className="remove_contact_button" onClick={() => {this.props.remove_contact(idx);}}>Remove Contact</div>
               </div>
             )
           })}
         </div>
         <div className="financials">
-            <div className="f_title">Revenue Growth</div>
+            <div className="f_label">Revenue Growth</div>
             <input type='text' className="f_data_input" value={target.revenue_growth} onChange={(event) => {this.props.change_value("revenue_growth", event.target.value)}}/>
-            <div className="f_title">Revenue per Customer</div>
+            <div className="f_label">Revenue per Customer</div>
             <input type='text' className="f_data_input" value={target.revenue_per_customer} onChange={(event) => {this.props.change_value("revenue_per_customer", event.target.value)}}/>
-            <div className="f_title">Customer Acquisition Cost</div>
+            <div className="f_label">Customer Acquisition Cost</div>
             <input type='text' className="f_data_input" value={target.customer_acquisition_cost} onChange={(event) => {this.props.change_value("customer_acquisition_cost", event.target.value)}}/>
-            <div className="f_title">Churn Rate</div>
+            <div className="f_label">Churn Rate</div>
             <input type='text' className="f_data_input" value={target.churn} onChange={(event) => {this.props.change_value("churn", event.target.value)}}/>
         </div>
         {this.props.state.target.display_type === 'edit' ? (
