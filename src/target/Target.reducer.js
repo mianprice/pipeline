@@ -1,35 +1,57 @@
 let INITIAL_STATE = {
   id: 0,
   name: '',
-  status: '',
+  status: 'Researching',
+  notes: '',
   contacts: [],
-  financials: [],
+  revenue_growth: '',
+  revenue_per_customer: '',
+  customer_acquisition_cost: '',
+  churn: '',
   display_type: ''
 };
 
 export default function reducer(state = INITIAL_STATE, action) {
-  if (action.type === 'create') {
+  if (action.type === 'create-target') {
     return Object.assign({}, INITIAL_STATE, {
       id: action.new_id,
       display_type: 'create'
     });
-  } else if (action.type === 'edit') {
-    return Object.assign({}, state, {
-      id: action.target.id,
-      name: action.target.name,
-      status: action.target.status,
-      contacts: action.target.contacts,
-      financials: action.target.financials,
+  } else if (action.type === 'edit-target') {
+    return Object.assign({}, action.target, {
       display_type: 'edit'
     });
-  } else if (action.type === 'delete') {
+  } else if (action.type === 'view-target') {
+    return Object.assign({}, action.target, {
+      display_type: 'view'
+    });
+  } else if (action.type === 'change-value') {
     return Object.assign({}, state, {
-      id: action.target.id,
-      name: action.target.name,
-      status: action.target.status,
-      contacts: action.target.contacts,
-      financials: action.target.financials,
-      display_type: 'delete'
+      [action.key]: action.value
+    });
+  } else if (action.type === 'add-contact') {
+    let c = JSON.parse(JSON.stringify(state.contacts));
+    c.push({
+      name: '',
+      title: '',
+      phone: '',
+      email: '',
+      notes: ''
+    });
+    return Object.assign({}, state, {
+      contacts: c
+    });
+  } else if (action.type === 'change-contact-value') {
+    let c = JSON.parse(JSON.stringify(state.contacts));
+    c[action.c_index][action.c_key] = action.c_value;
+    return Object.assign({}, state, {
+      contacts: c
+    });
+  } else if (action.type === 'remove-contact') {
+    let c = JSON.parse(JSON.stringify(state.contacts));
+    c.splice(action.c_index, 1);
+    return Object.assign({}, state, {
+      contacts: c
     });
   }
   return state;

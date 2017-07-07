@@ -1,29 +1,40 @@
 import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './Target.actions';
-
+import { hashHistory } from 'react-router';
 
 class Target extends React.Component {
   render() {
     let target = this.props.state.target;
-    let main_display = (this.props.state.target.display_type === 'view' || this.props.state.target.display_type === 'delete') ? (
+    let main_display = (this.props.state.target.display_type === 'view') ? (
       <div className="target_section">
-        <div className="name">{target.name}</div>
-        <div className="status">{target.status}</div>
-        <div className="notes">{target.notes}</div>
+        <div className="target_save" onClick={() => {hashHistory.push('/')}}>Back to Target List</div>
+        <div className="t_label">Target Name</div>
+        <div className="info">{target.name}</div>
+        <div className="t_label">Status</div>
+        <div className="info">{target.status}</div>
+        <div className="t_label">Notes</div>
+        <div className="info">{target.notes}</div>
+        <div className="t_label">Contacts</div>
         <div className="contacts">
           {target.contacts.map((contact, idx) => {
             return (
               <div className="c_section">
-                <div className="c_name">{contact.name}</div>
-                <div className="c_title">{contact.title}</div>
-                <div className="c_phone">{contact.phone}</div>
-                <div className="c_email">{contact.email}</div>
-                <div className="c_note">{contact.note}</div>
+                <div className="c_label">Name</div>
+                <div className="c_info">{contact.name}</div>
+                <div className="c_label">Name</div>
+                <div className="c_info">{contact.title}</div>
+                <div className="c_label">Name</div>
+                <div className="c_info">{contact.phone}</div>
+                <div className="c_label">Name</div>
+                <div className="c_info">{contact.email}</div>
+                <div className="c_label">Name</div>
+                <div className="c_info">{contact.note}</div>
               </div>
             )
           })}
         </div>
+        <div className="t_label">Financials</div>
         <div className="financials">
           <div className="f_section">
             <div className="f_title">Revenue Growth</div>
@@ -45,24 +56,38 @@ class Target extends React.Component {
       </div>
     ) : (
       <div className="target_section">
-        <div className="name_input">{target.name}</div>
-        <div className="status_input">{target.status}</div>
-        <div className="notes_input">{target.notes}</div>
+        {this.props.state.target.display_type === 'edit' ? (
+          <div className="target_save" onClick={() => {this.props.save_edited_target(this.props.state.target);}}>Save Target</div>
+        ) : (
+          <div className="target_save" onClick={() => {this.props.save_target(this.props.state.target);}}>Save Target</div>
+        )}
+        <div className="t_label">Target Name</div>
+        <input type="text" className="info_input" value={target.name} onChange={(event) => {this.props.change_value("name", event.target.value)}}/>
+        <div className="t_label">Status</div>
+        <select className="info_input" value={target.status} onChange={(event) => {this.props.change_value("status", event.target.value)}}>
+          <option value="Researching">Researching</option>
+          <option value="Pending Approval">Pending Approval</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <div className="t_label">Notes</div>
+        <input type="text" className="info_input" value={target.notes} onChange={(event) => {this.props.change_value("notes", event.target.value)}}/>
         <div className="contacts">
-          <div className="add_contact_button">Add Contact</div>
+          <div className="add_contact_button" onClick={() => {this.props.add_contact();}}>Add Contact</div>
           {target.contacts.map((contact, idx) => {
             return (
-              <div className="c_section">
+              <div className="c_section" key={idx}>
+                <div className="remove_contact_button" onClick={() => {this.props.remove_contact(idx);}}>Remove Contact</div>
                 <div className="c_label">Name</div>
-                <input className="c_name_input" value={contact.name}/>
+                <input type="text" className="c_info_input" value={contact.name} onChange={(event) => {this.props.change_contact_value(idx,"name",event.target.value);}}/>
                 <div className="c_label">Title</div>
-                <input className="c_title_input" value={contact.title}/>
+                <input type="text" className="c_info_input" value={contact.title} onChange={(event) => {this.props.change_contact_value(idx,"title",event.target.value);}}/>
                 <div className="c_label">Phone Number</div>
-                <input className="c_phone_input" value={contact.phone}/>
+                <input type="text" className="c_info_input" value={contact.phone} onChange={(event) => {this.props.change_contact_value(idx,"phone",event.target.value);}}/>
                 <div className="c_label">Email</div>
-                <input className="c_email_input" value={contact.email}/>
+                <input type="text" className="c_info_input" value={contact.email} onChange={(event) => {this.props.change_contact_value(idx,"email",event.target.value);}}/>
                 <div className="c_label">Note</div>
-                <input className="c_note_input" value={contact.note}/>
+                <input type="text" className="c_info_input" value={contact.note} onChange={(event) => {this.props.change_contact_value(idx,"notes",event.target.value);}}/>
               </div>
             )
           })}
@@ -70,21 +95,26 @@ class Target extends React.Component {
         <div className="financials">
           <div className="f_section">
             <div className="f_title">Revenue Growth</div>
-            <div className="f_data_input">${target.revenue_growth}</div>
+            <input type='text' className="f_data_input" value={target.revenue_growth} onChange={(event) => {this.props.change_value("revenue_growth", event.target.value)}}/>
           </div>
           <div className="f_section">
             <div className="f_title">Revenue per Customer</div>
-            <div className="f_data_input">${target.revenue_per_customer}</div>
+            <input type='text' className="f_data_input" value={target.revenue_per_customer} onChange={(event) => {this.props.change_value("revenue_per_customer", event.target.value)}}/>
           </div>
           <div className="f_section">
             <div className="f_title">Customer Acquisition Cost</div>
-            <div className="f_data_input">${target.customer_acquisition_cost}</div>
+            <input type='text' className="f_data_input" value={target.customer_acquisition_cost} onChange={(event) => {this.props.change_value("customer_acquisition_cost", event.target.value)}}/>
           </div>
           <div className="f_section">
             <div className="f_title">Churn Rate</div>
-            <div className="f_data_input">{target.churn}</div>
+            <input type='text' className="f_data_input" value={target.churn} onChange={(event) => {this.props.change_value("churn", event.target.value)}}/>
           </div>
         </div>
+        {this.props.state.target.display_type === 'edit' ? (
+          <div className="target_save" onClick={() => {this.props.save_edited_target(this.props.state.target);}}>Save Target</div>
+        ) : (
+          <div className="target_save" onClick={() => {this.props.save_target(this.props.state.target);}}>Save Target</div>
+        )}
       </div>
     );
     return main_display;
