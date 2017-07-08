@@ -26,7 +26,6 @@ input, select, option, textarea {
     text-align: center;
     background-color: black;
     color: white;
-    /*border-bottom: 4px solid black;*/
 }
 
 .app_title, .app_title:visited {
@@ -68,7 +67,6 @@ input, select, option, textarea {
 }
 
 .targets_list {
-  border-top: 4px solid black;
   padding-top: 2vh;
   width: 100vw;
   display: flex;
