@@ -83,7 +83,10 @@ let INITIAL_STATE = {
       customer_acquisition_cost: '1.00',
       churn: '2'
     }
-  ]
+  ],
+  targets_display: [],
+  display_type: 'full',
+  target_filter: ''
 };
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -100,6 +103,23 @@ export default function reducer(state = INITIAL_STATE, action) {
     t = t.concat([JSON.parse(JSON.stringify(action.target))]);
     return Object.assign({}, state, {
       targets: t
+    });
+  } else if (action.type === 'filter-targets') {
+    return Object.assign({}, state, {
+      display_type: 'filtered'
+    });
+  } else if (action.type === 'show-all') {
+    return Object.assign({}, state, {
+      display_type: 'full'
+    });
+  } else if (action.type === 'change-target-filter') {
+    let t = JSON.parse(JSON.stringify(state.targets));
+    t = t.filter((element) => {
+      return element.name.includes(state.target_filter);
+    });
+    return Object.assign({}, state, {
+      target_filter: action.new_value,
+      targets_display: t
     });
   } else if (action.type === 'save-edited-target') {
     let t = JSON.parse(JSON.stringify(state.targets));

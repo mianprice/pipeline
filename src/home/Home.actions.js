@@ -25,3 +25,16 @@ export const delete_target = (target_id) => {
         target_id
     };
 };
+
+export const filter_targets = () => {
+  return {
+    type: 'filter-targets'
+  };
+};
+
+export const change_target_filter = (new_value) => {
+  return {
+    type: 'change-target-filter',
+    new_value
+  };
+};
