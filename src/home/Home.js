@@ -22,9 +22,20 @@ class Home extends React.Component {
     })
     return (
       <div className="home">
-          <div className="new_target_button" onClick={() => {this.props.create_target(next_id); hashHistory.push('/target')}}>Create New Target</div>
-        <div className="targets_list">
-          {targets_display}
+        <div className="pipeline">
+          <div className="pipeline_header">
+            <div className="pipeline_title">Pipeline Name</div>
+            <div className="pipeline_controls">
+              <div className="new_target_button" onClick={() => {this.props.create_target(next_id); hashHistory.push('/target')}}>Create New Target</div>
+              <div className="filter_controls">
+                <input type="text" placeholder="Enter Search Term Here"/>
+                <div className="filter_search_button">Search</div>
+              </div>
+            </div>
+          </div>
+          <div className="targets_list">
+            {targets_display}
+          </div>
         </div>
       </div>
     );

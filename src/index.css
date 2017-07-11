@@ -50,15 +50,59 @@ input, select, option, textarea {
   flex-wrap: wrap;
 }
 
+.pipeline {
+  width: 80vw;
+  margin-top: 20px;
+  background-color: rgb(200,200,200);
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.pipeline_header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
+.pipeline_title {
+  width: 40%;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.5em;
+}
+
+.pipeline_controls {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+}
+
+.filter_controls {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 50%;
+}
+
+.filter_search_button {
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
 .new_target_button {
   text-align: center;
-  font-size: 1.25em;
-  padding: 10px;
+  padding: 5px;
   background-color: black;
   border-radius: 2px;
   color: white;
-  width: 50vw;
-  margin: 5px 25vw;
+  margin: 5px;
 }
 
 .new_target_button:hover {
@@ -67,8 +111,8 @@ input, select, option, textarea {
 }
 
 .targets_list {
-  padding-top: 2vh;
-  width: 100vw;
+  width: 100%;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,9 +120,9 @@ input, select, option, textarea {
 }
 
 .target_mini_section {
-  width: 90vw;
+  width: 100%;
   padding: 10px;
-  margin: 10px 5vw;
+  border: 5px solid rgb(200,200,200);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,13 +130,13 @@ input, select, option, textarea {
 }
 
 .target_mini_section > .name {
-  width: 25vw;
+  width: 25%;
   text-align: left;
   font-size: 1.15em;
 }
 
 .target_mini_section > .status {
-  width: 25vw;
+  width: 25%;
   text-align: left;
   background-color: rgb(75,75,75);
   border-radius: 2px;
@@ -102,7 +146,7 @@ input, select, option, textarea {
 }
 
 .target_mini_section > .target_controls {
-  width: 30vw;
+  width: 30%;
   text-align: right;
   display: flex;
   justify-content: flex-end;
@@ -138,7 +182,7 @@ input, select, option, textarea {
 
 .target_section {
   margin-top: 3vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
