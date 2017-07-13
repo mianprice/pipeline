@@ -115,7 +115,7 @@ export default function reducer(state = INITIAL_STATE, action) {
   } else if (action.type === 'change-target-filter') {
     let t = JSON.parse(JSON.stringify(state.targets));
     t = t.filter((element) => {
-      return element.name.includes(state.target_filter);
+      return element.name.toLowerCase().includes(state.target_filter);
     });
     return Object.assign({}, state, {
       target_filter: action.new_value,
